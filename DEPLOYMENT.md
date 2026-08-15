@@ -2,6 +2,27 @@
 
 ## Production Build
 
+### 0. Coolify Deployment (vtuberdesign.com)
+
+This project uses **Vite 8**, which requires **Node.js 22.12+** (and npm that correctly installs native bindings for rolldown). The build container **must** use Node 24.
+
+> ⚠️ **Required**: If you deploy via Coolify/Nixpacks, set `NIXPACKS_NODE_VERSION=24` in your Coolify environment variables. Without this, the build container defaults to Node 22.11.0 and the build fails with:
+> ```
+> You are using Node.js 22.11.0. Vite requires Node.js version 20.19+ or 22.12+. Please upgrade your Node.js version.
+> Cannot find module '../rolldown-binding.linux-x64-gnu.node'
+> ```
+
+#### Steps in Coolify
+1. Open your application (**Murtazamahmood640/vutberdesign:main**).
+2. Go to **Environment Variables**.
+3. Add:
+   ```
+   NIXPACKS_NODE_VERSION=24
+   ```
+4. **Redeploy**.
+
+The `engines` field in `package.json` (`node >= 22.13.0`) and `.npmrc` (`engine-strict=true`) will fail the build immediately with a clear error if the Node version is ever set too low again.
+
 ### 1. Build the frontend
 ```bash
 cd client
