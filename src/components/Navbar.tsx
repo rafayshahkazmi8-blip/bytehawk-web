@@ -36,7 +36,7 @@ export default function Navbar() {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-logo" onClick={() => goTo('/')}>
-        <img src="/Logo.jpeg" alt="Bytehawk" />
+        <img src="/logo.jpeg" alt="Bytehawk" />
       </div>
 
       <div className="nav-links">

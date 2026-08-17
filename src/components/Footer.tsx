@@ -44,7 +44,7 @@ export default function Footer({ onOpenEstimator }: FooterProps) {
             {/* Brand Column */}
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '18px', cursor: 'pointer' }} onClick={() => navigate('/')}>
-                <img src="/Logo.jpeg" alt="Bytehawk" style={{ height: '36px', width: '36px', borderRadius: '10px', objectFit: 'cover', border: '1.5px solid rgba(139,92,246,0.4)' }} />
+                <img src="/logo.jpeg" alt="Bytehawk" style={{ height: '36px', width: '36px', borderRadius: '10px', objectFit: 'cover', border: '1.5px solid rgba(139,92,246,0.4)' }} />
                 <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '1.25rem', color: 'var(--text-white)' }}>Bytehawk</span>
               </div>
               <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', lineHeight: '1.7', marginBottom: '24px', maxWidth: '260px' }}>
