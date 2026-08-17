@@ -39,7 +39,7 @@ export default function Footer({ onOpenEstimator }: FooterProps) {
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
 
           {/* Top: Brand + Links + Social */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1.6fr 1fr 1fr 1fr 1fr', gap: '40px', marginBottom: '60px', flexWrap: 'wrap' }}>
+          <div className="footer-main-grid" style={{ display: 'grid', gridTemplateColumns: '1.6fr 1fr 1fr 1fr 1fr', gap: '40px', marginBottom: '60px' }}>
 
             {/* Brand Column */}
             <div>
@@ -102,7 +102,7 @@ export default function Footer({ onOpenEstimator }: FooterProps) {
 
           {/* Services highlight row */}
           <div style={{ padding: '28px', background: 'rgba(124,58,237,0.06)', border: '1px solid rgba(139,92,246,0.15)', borderRadius: '18px', marginBottom: '40px' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '20px' }}>
+            <div className="footer-services-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '20px' }}>
               {[
                 { t: 'Web Development', d: 'React, Three.js, TypeScript apps built for speed and immersion.' },
                 { t: 'Graphic Design', d: 'Visual identity systems, logos, and brand books.' },
@@ -121,7 +121,7 @@ export default function Footer({ onOpenEstimator }: FooterProps) {
           </div>
 
           {/* CTA row */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '24px 28px', background: 'linear-gradient(135deg, rgba(124,58,237,0.12) 0%, rgba(217,70,239,0.08) 100%)', border: '1px solid rgba(139,92,246,0.2)', borderRadius: '16px', marginBottom: '40px', flexWrap: 'wrap', gap: '16px' }}>
+          <div className="footer-cta" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '24px 28px', background: 'linear-gradient(135deg, rgba(124,58,237,0.12) 0%, rgba(217,70,239,0.08) 100%)', border: '1px solid rgba(139,92,246,0.2)', borderRadius: '16px', marginBottom: '40px', flexWrap: 'wrap', gap: '16px' }}>
             <div>
               <p style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, color: 'var(--text-white)', fontSize: '1.05rem', marginBottom: '2px' }}>Ready to start your project?</p>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Get a free cost estimate in under 2 minutes.</p>
@@ -132,7 +132,7 @@ export default function Footer({ onOpenEstimator }: FooterProps) {
           </div>
 
           {/* Bottom bar */}
-          <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
+          <div className="footer-bottom" style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
             <p style={{ color: 'var(--text-subtle)', fontSize: '0.8rem' }}>
               © 2024 Bytehawk Studio. All rights reserved.
             </p>

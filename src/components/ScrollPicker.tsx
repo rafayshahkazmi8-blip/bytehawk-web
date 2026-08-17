@@ -49,8 +49,8 @@ export default function ScrollPicker({ items, value, onChange, label, width = 90
           onWheel={(e) => e.stopPropagation()}
           onTouchMove={(e) => e.stopPropagation()}
           style={{
-            position: 'absolute', top: '100%', left: '50%', transform: 'translateX(-50%)',
-            marginTop: 4, width: width + 20, maxHeight: 160, overflowY: 'auto',
+            position: 'absolute', top: '100%', left: 0,
+            marginTop: 4, width: width + 20, minWidth: 60, maxHeight: 160, overflowY: 'auto',
             borderRadius: 8, background: 'rgba(15,8,36,0.97)', border: '1px solid rgba(139,92,246,0.35)',
             backdropFilter: 'blur(16px)', zIndex: 50, padding: 4,
             boxShadow: '0 12px 40px rgba(0,0,0,0.6)',

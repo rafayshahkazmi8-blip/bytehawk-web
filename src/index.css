@@ -927,10 +927,20 @@ a {
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+@media (max-width: 1280px) {
+  .nav-logo img { width: 220px; height: 44px; }
+}
+
 @media (max-width: 1024px) {
   .section { padding: 120px 5% 70px 5%; }
   .contact-grid { grid-template-columns: 1fr; gap: 40px; }
   .service-grid { grid-template-columns: repeat(2, 1fr); }
+  .est-grid { grid-template-columns: 1fr !important; }
+  .est-summary { position: static !important; flex-direction: row !important; flex-wrap: wrap; gap: 12px !important; }
+  .est-summary > div { flex: 1; min-width: 260px; }
+  .contact-layout { grid-template-columns: 1fr !important; gap: 40px !important; }
+  .footer-main-grid { grid-template-columns: 1fr 1fr !important; }
+  .footer-services-grid { grid-template-columns: 1fr 1fr !important; }
 }
 
 @media (max-width: 768px) {
@@ -944,10 +954,29 @@ a {
   .stats-bar { flex-direction: column; gap: 20px; }
   .stat-item { border-right: none; border-bottom: 1px solid var(--glass-border); padding: 15px 0; text-align: left; }
   .stat-item:last-child { border-bottom: none; }
+  .nav-logo img { width: 160px; height: 36px; }
+  .navbar { padding: 14px 5%; }
+  .navbar.scrolled { padding: 10px 5%; }
+  .footer-main-grid { grid-template-columns: 1fr !important; }
+  .footer-services-grid { grid-template-columns: 1fr !important; }
+  .step-indicator { gap: 0; margin-bottom: 32px; }
+  .step-label { font-size: 0.58rem !important; }
+  .step-circle { width: 34px !important; height: 34px !important; }
+  .est-grid { gap: 16px !important; }
+  .est-summary { flex-direction: column !important; }
+  .footer-cta { flex-direction: column; text-align: center; }
 }
 
 @media (max-width: 480px) {
-  .hero-title { font-size: 2.5rem; }
-  .section { padding: 90px 5% 50px 5%; }
-  .modal-box { padding: 28px 22px; }
+  .hero-title { font-size: 2.2rem; }
+  .section { padding: 90px 4% 50px 4%; }
+  .section-title { font-size: 2rem; }
+  .modal-box { padding: 28px 18px; }
+  .nav-logo img { width: 130px; height: 32px; }
+  .glass-card-strong { padding: 24px !important; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .step-label { display: none !important; }
+  .step-circle { width: 30px !important; height: 30px !important; }
+  .footer-main-grid { grid-template-columns: 1fr !important; }
+  .footer-services-grid { grid-template-columns: 1fr !important; }
 }

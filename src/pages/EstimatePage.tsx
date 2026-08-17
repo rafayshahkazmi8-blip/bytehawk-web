@@ -244,7 +244,7 @@ export default function EstimatePage() {
         </div>
 
         {/* Main Panel + Summary Side by Side */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 300px', gap: '24px', alignItems: 'start' }}>
+        <div className="est-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 300px', gap: '24px', alignItems: 'start' }}>
 
           {/* Main Panel */}
           <div className="glass-card-strong" style={{ padding: '36px' }}>
@@ -372,7 +372,7 @@ export default function EstimatePage() {
           </div>
 
           {/* Right: Live Summary */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', position: 'sticky', top: '120px' }}>
+          <div className="est-summary" style={{ display: 'flex', flexDirection: 'column', gap: '16px', position: 'sticky', top: '120px' }}>
             <div className="glass-card" style={{ padding: '24px' }}>
               <h4 style={{ fontSize: '0.78rem', fontWeight: 800, color: 'var(--text-subtle)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '18px' }}>Summary</h4>
 
