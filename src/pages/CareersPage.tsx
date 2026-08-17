@@ -50,7 +50,7 @@ export default function CareersPage() {
     <section className="section">
       <div className="container">
         {/* Header */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'start', marginBottom: '60px' }}>
+        <div className="careers-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'start', marginBottom: '60px' }}>
           <div>
             <span className="section-label">Join Bytehawk</span>
             <h1 className="section-title text-gradient-white" style={{ fontSize: '2.8rem' }}>

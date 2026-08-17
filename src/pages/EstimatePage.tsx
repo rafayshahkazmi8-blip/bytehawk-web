@@ -308,7 +308,7 @@ export default function EstimatePage() {
                   </div>
                 </div>
 
-                <div style={{ padding: '14px 18px', borderRadius: '12px', background: 'rgba(124,58,237,0.1)', border: '1px solid rgba(139,92,246,0.25)', display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <div style={{ padding: '14px 18px', borderRadius: '12px', background: 'rgba(124,58,237,0.1)', border: '1px solid rgba(139,92,246,0.25)', display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
                   <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--purple-300)', flexShrink: 0 }} />
                   <span style={{ color: 'var(--text-light)', fontSize: '0.88rem', fontWeight: 600 }}>
                     Slot reserved — <strong style={{ color: 'var(--purple-200)' }}>{dateLabel}</strong> at <strong style={{ color: 'var(--purple-200)' }}>{timeLabel}</strong>

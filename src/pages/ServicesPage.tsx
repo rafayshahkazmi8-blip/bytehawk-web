@@ -76,7 +76,7 @@ export default function ServicesPage() {
         </div>
 
         {/* Content Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '50px', alignItems: 'start' }}>
+        <div className="services-content-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '50px', alignItems: 'start' }}>
           {/* Left: Details */}
           <div key={activeTab} className="animate-fade-up">
             <span className="section-label">{tabs.find(t => t.key === activeTab)?.label}</span>
@@ -118,7 +118,7 @@ export default function ServicesPage() {
                   ))}
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px' }}>
+                <div className="services-tech-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px' }}>
                   {filtered.map(t => (
                     <div key={t.name} className="glass-card" style={{ padding: '18px 12px', textAlign: 'center', cursor: 'pointer', flexDirection: 'column', display: 'flex', alignItems: 'center', gap: '8px' }}>
                       {t.icon}

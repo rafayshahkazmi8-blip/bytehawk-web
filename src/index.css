@@ -58,6 +58,7 @@
 
 html {
   scroll-behavior: auto;
+  overflow-x: hidden;
 }
 
 body {
@@ -101,6 +102,7 @@ a {
   position: relative;
   width: 100%;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .canvas-container {
@@ -231,7 +233,6 @@ a {
   transition: var(--transition);
   border: none;
   text-decoration: none;
-  white-space: nowrap;
 }
 
 .btn-primary {
@@ -521,7 +522,7 @@ a {
    ============================================================ */
 .service-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
   gap: 24px;
   margin-top: 50px;
 }
@@ -580,7 +581,7 @@ a {
    ============================================================ */
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr));
   gap: 28px;
   margin-top: 50px;
 }
@@ -944,6 +945,9 @@ a {
   .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
   .portfolio-details-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
   .portfolio-sidebar { position: static !important; }
+  .about-story-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
+  .careers-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
+  .services-content-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
 }
 
 @media (max-width: 768px) {
@@ -971,6 +975,13 @@ a {
   .stats-grid { grid-template-columns: 1fr 1fr !important; }
   .portfolio-detail-top { flex-direction: column; align-items: flex-start !important; }
   .portfolio-slider { height: 280px !important; }
+  .about-story-grid { gap: 30px !important; }
+  .about-stats-grid { grid-template-columns: 1fr 1fr !important; }
+  .about-timeline .about-story-grid > div { flex-direction: column !important; }
+  .careers-grid { gap: 30px !important; }
+  .services-content-grid { gap: 30px !important; }
+  .services-tech-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .faq-trigger { padding: 18px 20px; font-size: 0.95rem; }
 }
 
 @media (max-width: 480px) {
@@ -988,4 +999,7 @@ a {
   .stats-grid { grid-template-columns: 1fr !important; }
   .portfolio-slider { height: 200px !important; }
   .portfolio-details-grid { gap: 24px !important; }
+  .about-stats-grid { grid-template-columns: 1fr !important; }
+  .services-tech-grid { grid-template-columns: 1fr !important; }
+  .btn { padding: 12px 20px; font-size: 0.88rem; }
 }

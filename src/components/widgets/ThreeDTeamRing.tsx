@@ -275,11 +275,11 @@ const Wrapper = styled.div`
   user-select: none;
   perspective: 2200px;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
 `;
 
 const Stage = styled.div`
-  width: 400px;
+  width: min(400px, 90vw);
   height: 540px;
   position: relative;
   transform-style: preserve-3d;

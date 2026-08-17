@@ -41,6 +41,7 @@ export default function AboutPage() {
 
         {/* ── Story + Stats ── */}
         <div
+          className="about-story-grid"
           style={{
             display: 'grid',
             gridTemplateColumns: '1fr 1fr',
@@ -68,7 +69,7 @@ export default function AboutPage() {
               Every project is driven by a deep commitment to craft — obsessing over every pixel,
               every millisecond of load time, and every percentage point of conversion rate.
             </p>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+            <div className="about-stats-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
               {[
                 { n: '120+', l: 'Projects Delivered' },
                 { n: '99.4%', l: 'Client Satisfaction' },
@@ -191,7 +192,7 @@ export default function AboutPage() {
           <h2 style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--text-white)', marginBottom: '44px', textAlign: 'center' }}>
             Our Journey
           </h2>
-          <div style={{ position: 'relative', maxWidth: '720px', margin: '0 auto' }}>
+          <div className="about-timeline" style={{ position: 'relative', maxWidth: '720px', margin: '0 auto' }}>
             <div
               style={{
                 position: 'absolute',

@@ -278,7 +278,7 @@ export default function PortfolioPage() {
                         href={selected.link} 
                         target="_blank" 
                         rel="noreferrer" 
-                        style={{ color: 'var(--purple-300)', fontSize: '0.9rem', fontWeight: 600, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px' }}
+                        style={{ color: 'var(--purple-300)', fontSize: '0.9rem', fontWeight: 600, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px', overflowWrap: 'break-word', wordBreak: 'break-all' }}
                       >
                         {selected.link.replace('https://', '')} <ExternalLink size={12} />
                       </a>

@@ -127,6 +127,7 @@ export default function Hero({ onOpenEstimator }: HeroProps) {
         justifyContent: 'center',
         padding: '130px 8% 70px 8%',
         position: 'relative',
+        overflow: 'hidden',
       }}
     >
       <style>{`
