@@ -93,7 +93,7 @@ function ProjectImageSlider({ images }: { images: string[] }) {
   }, [images]);
 
   return (
-    <div style={{ 
+    <div className="portfolio-slider" style={{ 
       position: 'relative', 
       width: '100%', 
       height: '480px',
@@ -163,7 +163,7 @@ export default function PortfolioPage() {
         <div className="container">
           
           {/* Back Button and Navigation Row */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px' }}>
+          <div className="portfolio-detail-top" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px', flexWrap: 'wrap', gap: '12px' }}>
             <button 
               onClick={() => setSelected(null)}
               className="btn btn-glass"
@@ -254,7 +254,7 @@ export default function PortfolioPage() {
             </div>
 
             {/* Right Column: Sticky Sidebar / Metadata */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', position: 'sticky', top: '120px' }}>
+            <div className="portfolio-sidebar" style={{ display: 'flex', flexDirection: 'column', gap: '24px', position: 'sticky', top: '120px' }}>
               
               {/* Glass Metadata Card */}
               <div className="glass-card-strong" style={{ padding: '32px' }}>

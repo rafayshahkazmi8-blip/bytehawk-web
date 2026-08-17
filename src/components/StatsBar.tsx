@@ -16,6 +16,7 @@ export default function StatsBar() {
       }}
     >
       <div
+        className="stats-grid"
         style={{
           maxWidth: '1200px',
           margin: '0 auto',
