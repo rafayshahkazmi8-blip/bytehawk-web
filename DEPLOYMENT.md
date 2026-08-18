@@ -23,6 +23,24 @@ This project uses **Vite 8**, which requires **Node.js 22.12+** (and npm that co
 
 The `engines` field in `package.json` (`node >= 22.13.0`) and `.npmrc` (`engine-strict=true`) will fail the build immediately with a clear error if the Node version is ever set too low again.
 
+#### Backend CORS (Important)
+The frontend is served at `vtuberdesign.com` but the API lives at `bythawkadmin.vercel.app` (cross-origin). The backend **must** include the exact live origin in its CORS allowlist.
+
+> ⚠️ **Note**: The backend CORS list once contained `https://vutuberdesign.com` (misspelled with an extra "u"). The correct domain is `https://vtuberdesign.com`. Always keep the spelling in sync with the actual Coolify domain.
+
+To allow the live site to fetch the portfolio/API:
+1. Edit `../backend/server.js` → CORS `origin` array must include:
+   ```
+   https://vtuberdesign.com, https://www.vtuberdesign.com
+   ```
+2. Commit & push to `https://github.com/Murtazamahmood640/bythawkadmin`.
+3. Redeploy the backend on Vercel (`bythawkadmin.vercel.app`).
+4. Verify:
+   ```bash
+   curl -s -i -H "Origin: https://vtuberdesign.com" https://bythawkadmin.vercel.app/api/portfolio
+   ```
+   The response must include `Access-Control-Allow-Origin: https://vtuberdesign.com`.
+
 ### 1. Build the frontend
 ```bash
 cd client

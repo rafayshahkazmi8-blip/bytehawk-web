@@ -35,7 +35,7 @@ const Hero = ({ setActiveTab }) => {
               fontFamily: 'var(--font-heading)'
             }}
           >
-            ByteHawk
+            Vtuber Design
           </h1>
           <h2
             style={{
@@ -313,7 +313,7 @@ const Hero = ({ setActiveTab }) => {
 
             {/* Bottom Stream Status */}
             <div style={{ padding: '20px 24px', backgroundColor: 'var(--bg-deep)' }}>
-              <h4 style={{ marginBottom: '4px', fontSize: '1.15rem' }}>ByteHawk Broadcast System v2.1</h4>
+              <h4 style={{ marginBottom: '4px', fontSize: '1.15rem' }}>Vtuber Design Broadcast System v2.1</h4>
               <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
                 Testing premium Live2D models, high-quality audio lip-syncing, and stinger transitions.
               </p>
