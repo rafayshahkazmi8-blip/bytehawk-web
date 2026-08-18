@@ -32,6 +32,11 @@ const AdminDashboard = ({ onLogout }) => {
   const [editPreview, setEditPreview] = useState('');
   const [editUploading, setEditUploading] = useState(false);
 
+  // Portfolio Edit State
+  const [editingPfId, setEditingPfId] = useState(null);
+  const [editPfName, setEditPfName] = useState('');
+  const [editPfCategory, setEditPfCategory] = useState('');
+
   const fetchAdminData = async () => {
     try {
       setLoading(true);
@@ -108,6 +113,46 @@ const AdminDashboard = ({ onLogout }) => {
       }
     } catch (err) {
       alert('Delete failed');
+    }
+  };
+
+  const startEditingPf = (item) => {
+    setEditingPfId(item._id || item.id);
+    setEditPfName(item.name);
+    setEditPfCategory(item.category);
+  };
+
+  const cancelEditingPf = () => {
+    setEditingPfId(null);
+    setEditPfName('');
+    setEditPfCategory('');
+  };
+
+  const handleUpdatePortfolioItem = async (item) => {
+    if (!editPfName.trim()) {
+      alert('Name is required.');
+      return;
+    }
+    try {
+      const formData = new FormData();
+      formData.append('name', editPfName);
+      formData.append('category', editPfCategory);
+      formData.append('type', item.type);
+
+      const itemId = item._id || item.id;
+      const res = await fetch(getApiUrl(`/api/portfolio/${itemId}`), {
+        method: 'PUT',
+        body: formData,
+      });
+      const json = await res.json();
+      if (json.success) {
+        cancelEditingPf();
+        fetchAdminData();
+      } else {
+        alert(json.message || 'Update failed');
+      }
+    } catch (err) {
+      alert('Update error: ' + err.message);
     }
   };
 
@@ -809,6 +854,7 @@ const AdminDashboard = ({ onLogout }) => {
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '16px' }}>
                   {portfolioItems.filter(i => i.category !== 'websites').map((item) => {
                     const itemId = item._id || item.id;
+                    const isEditing = editingPfId === itemId;
                     return (
                       <GlassCard key={itemId} padding={false} style={{ overflow: 'hidden' }}>
                         <div style={{ position: 'relative', width: '100%', paddingBottom: '75%', backgroundColor: '#000' }}>
@@ -818,18 +864,65 @@ const AdminDashboard = ({ onLogout }) => {
                             <img src={item.url} alt={item.name} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
                           )}
                         </div>
-                        <div style={{ padding: '12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                          <div style={{ overflow: 'hidden' }}>
-                            <span style={{ fontSize: '0.65rem', color: 'var(--accent)', textTransform: 'uppercase', fontWeight: 'bold' }}>{item.category}</span>
-                            <h5 style={{ fontSize: '0.85rem', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', color: '#fff' }}>{item.name}</h5>
-                          </div>
-                          {item._id && (
-                            <button
-                              onClick={() => deletePortfolioItem(itemId)}
-                              style={{ background: 'rgba(239, 68, 68, 0.15)', border: 'none', color: '#ef4444', borderRadius: '50%', width: '28px', height: '28px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', flexShrink: 0 }}
-                            >
-                              <Trash2 size={14} />
-                            </button>
+                        <div style={{ padding: '12px' }}>
+                          {isEditing ? (
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                              <input
+                                type="text"
+                                value={editPfName}
+                                onChange={(e) => setEditPfName(e.target.value)}
+                                style={{ width: '100%', padding: '6px 8px', borderRadius: '6px', backgroundColor: 'var(--bg-dark)', border: '1px solid var(--accent)', color: '#fff', fontSize: '0.85rem', boxSizing: 'border-box' }}
+                              />
+                              <select
+                                value={editPfCategory}
+                                onChange={(e) => setEditPfCategory(e.target.value)}
+                                style={{ width: '100%', padding: '6px 8px', borderRadius: '6px', backgroundColor: 'var(--bg-dark)', border: '1px solid var(--accent)', color: '#fff', fontSize: '0.75rem', boxSizing: 'border-box' }}
+                              >
+                                <option value="3d-models">3D Models</option>
+                                <option value="3d-animations">3D Animations</option>
+                                <option value="2d-models">2D Models</option>
+                                <option value="2d-animations">2D Animations</option>
+                                <option value="2d-rigging">2D Rigging</option>
+                                <option value="branding">Branding & Graphics</option>
+                              </select>
+                              <div style={{ display: 'flex', gap: '6px' }}>
+                                <button
+                                  onClick={() => handleUpdatePortfolioItem(item)}
+                                  style={{ flex: 1, padding: '5px', borderRadius: '6px', border: 'none', backgroundColor: 'var(--accent)', color: '#fff', fontSize: '0.75rem', cursor: 'pointer', fontWeight: 'bold' }}
+                                >
+                                  Save
+                                </button>
+                                <button
+                                  onClick={cancelEditingPf}
+                                  style={{ flex: 1, padding: '5px', borderRadius: '6px', border: '1px solid var(--border-glow)', backgroundColor: 'transparent', color: 'var(--text-secondary)', fontSize: '0.75rem', cursor: 'pointer' }}
+                                >
+                                  Cancel
+                                </button>
+                              </div>
+                            </div>
+                          ) : (
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                              <div style={{ overflow: 'hidden' }}>
+                                <span style={{ fontSize: '0.65rem', color: 'var(--accent)', textTransform: 'uppercase', fontWeight: 'bold' }}>{item.category}</span>
+                                <h5 style={{ fontSize: '0.85rem', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', color: '#fff' }}>{item.name}</h5>
+                              </div>
+                              {item._id && (
+                                <div style={{ display: 'flex', gap: '4px', flexShrink: 0 }}>
+                                  <button
+                                    onClick={() => startEditingPf(item)}
+                                    style={{ background: 'rgba(99, 102, 241, 0.15)', border: 'none', color: '#6366f1', borderRadius: '50%', width: '28px', height: '28px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}
+                                  >
+                                    <Edit size={14} />
+                                  </button>
+                                  <button
+                                    onClick={() => deletePortfolioItem(itemId)}
+                                    style={{ background: 'rgba(239, 68, 68, 0.15)', border: 'none', color: '#ef4444', borderRadius: '50%', width: '28px', height: '28px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}
+                                  >
+                                    <Trash2 size={14} />
+                                  </button>
+                                </div>
+                              )}
+                            </div>
                           )}
                         </div>
                       </GlassCard>
