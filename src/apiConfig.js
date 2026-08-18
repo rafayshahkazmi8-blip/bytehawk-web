@@ -4,7 +4,7 @@
 // Set this to `true` to ALWAYS use the production backend (https://bythawkadmin.vercel.app)
 // even when running the frontend locally on Vite dev server.
 // Set to `false` to use the local backend (http://localhost:50001) in development.
-const USE_LIVE_BACKEND = true;
+const USE_LIVE_BACKEND = false;
 
 // Production backend URL
 const PROD_API_URL = 'https://bythawkadmin.vercel.app';
